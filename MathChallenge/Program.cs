@@ -7,17 +7,32 @@ namespace MathChallenge
     {
         public static void Main(string[] args)
         {
-            //Input: Your program should read two integer numbers from the user with the same number of digits(example: number1 = 234, number2 = 564).
-            //Task: Check if each corresponding place in the two numbers(ones, tens, hundreds, …) sums to the same total.
-            //Output: Your program should print out: True or False based on the result.
-            //Examples:Number1 = 153 , Number2 = 345  => 1 + 3 ≠ 5 + 4 ≠ 3 + 5 Program prints False.Number1 = 543 , Number2 = 456  => 5 + 4 = 4 + 5 = 3 + 6 Program prints True.
-            //Things to look for: -Do proper validation on the user’s input.- Write the task in a separate method.- Provide adequate comments.- Provide adequate user prompts.
+            CompareDigits();
+            /*Input: Your program should read two integer numbers from the user with the same number of digits(example: number1 = 234, number2 = 564).
+             
+            Task: Check if each corresponding place in the two numbers(ones, tens, hundreds, …) sums to the same total.
+            
+            Output: Your program should print out: True or False based on the result.
+            
+            Examples:
+            Number1 = 153 , Number2 = 345  => 1 + 3 ≠ 5 + 4 ≠ 3 + 5 Program prints False.Number1 = 543 , 
+            Number2 = 456  => 5 + 4 = 4 + 5 = 3 + 6 Program prints True.
+            
+            Things to look for: 
+            -Do proper validation on the user’s input.
+            - Write the task in a separate method.
+            - Provide adequate comments.- Provide adequate user prompts.*/
+        }
+
+        private static bool CompareDigits()
+            {
+
             Console.WriteLine("Hello and Welcome to the Math Challenge. You will need to enter two intergers with the same numbers of digits!");
 
             int userEnteredNum1;
             int userEnteredNum2;
 
-            //TODO try to instead have the values entered directly into an array of ints
+
             Console.WriteLine("Enter the 1st interger: ");
             userEnteredNum1 = Convert.ToInt32(Console.ReadLine());
 			Console.WriteLine("Enter the 2nd interger: ");
@@ -36,6 +51,24 @@ namespace MathChallenge
                 Console.WriteLine("Thank you. Your nubers are {0} and {1}", userEnteredNum1, userEnteredNum2);
             }
 
+            int firstTotalPlace = Convert.ToInt32(lengthOfNum1[0] + Convert.ToInt32(lengthOfNum2[0]));
+            int secondTotalPlace = Convert.ToInt32(lengthOfNum1[1] + Convert.ToInt32(lengthOfNum2[1]));
+            int thirdTotalPlace = Convert.ToInt32(lengthOfNum1[2] + Convert.ToInt32(lengthOfNum2[2]));
+
+            if((firstTotalPlace == secondTotalPlace) && (secondTotalPlace == thirdTotalPlace ) && (firstTotalPlace == thirdTotalPlace))
+                
+            {
+                return true;
+
+            }
+
+
+            else
+            {
+                return false;
+
+            }
+           
 
         }
     }
