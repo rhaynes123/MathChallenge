@@ -13,6 +13,7 @@
             - Write the task in a separate method.
             - Provide adequate comments.- Provide adequate user prompts.*/
 using System;
+
 namespace MathChallenge
 {
     class MainClass
@@ -28,15 +29,15 @@ namespace MathChallenge
 			//Outputs a question to the user and reads in input to initialize variable 1
 			Console.WriteLine("Enter the 1st interger: ");
 			userEnteredNum1 = Convert.ToInt32(Console.ReadLine());
-			string lengthOfNum1 = userEnteredNum1.ToString();//Converts the int values into strings so the length of the int can be checked for value 1
+			string StringOfNum1 = userEnteredNum1.ToString();//Converts the int values into strings so the length of the int can be checked for value 1
 
 			//Outputs a question to the user and reads in input to initialize variable 2
 			Console.WriteLine("Enter the 2nd interger: ");
 			userEnteredNum2 = Convert.ToInt32(Console.ReadLine());
-			string lengthOfNum2 = userEnteredNum2.ToString();//Converts the int values into strings so the length of the int can be checked for value 1
+			string StringOfNum2 = userEnteredNum2.ToString();//Converts the int values into strings so the length of the int can be checked for value 1
 
 			//Checks that both strings have the same number of characters and displays the out come to the user
-			if (lengthOfNum1.Length != lengthOfNum2.Length)
+			if (StringOfNum1.Length != StringOfNum2.Length)
 			{
 				Console.WriteLine("Sorry those intergers do not have the same number of digits. Please use a int with the same number of digits");
 			}
@@ -44,26 +45,33 @@ namespace MathChallenge
 			{
 				Console.WriteLine("True\nAwesome! The digits in your numbers({0} and {1}) have the same sum totals. ", userEnteredNum1, userEnteredNum2);
 			}
+            //TODO Add code base that increments a variable that holds and increments the emelemtns by 1 each time 
+            int numDigit1 = Convert.ToInt32(StringOfNum1[0]);
 
-			int firstTotalPlace = Convert.ToInt32(lengthOfNum1[0] + Convert.ToInt32(lengthOfNum2[0]));
-			int secondTotalPlace = Convert.ToInt32(lengthOfNum1[1] + Convert.ToInt32(lengthOfNum2[1]));
-			int thirdTotalPlace = Convert.ToInt32(lengthOfNum1[2] + Convert.ToInt32(lengthOfNum2[2]));
+			do
+            {
+                numDigit1 += numDigit1;
+                Console.WriteLine(numDigit1);
+            }
+            while (numDigit1 >= Convert.ToInt32(StringOfNum1.Length));
+            //All above is attempting to create an incremental loop for the element index
 
-			if ((firstTotalPlace == secondTotalPlace) && (secondTotalPlace == thirdTotalPlace) && (firstTotalPlace == thirdTotalPlace))
 
+
+			//New variables are created to store the individual digits of the intergers
+			//This is possble by using ConvertTo Int32 on the elements of the strings and since Strings are by definition Character arrays this reverts the digits back to ints.
+			int onesPlace = Convert.ToInt32(StringOfNum1[0] + Convert.ToInt32(StringOfNum2[0]));
+			int twosPlace = Convert.ToInt32(StringOfNum1[1] + Convert.ToInt32(StringOfNum2[1]));
+			int threesPlace = Convert.ToInt32(StringOfNum1[2] + Convert.ToInt32(StringOfNum2[2]));
+
+			if ((onesPlace == twosPlace) && (twosPlace == threesPlace) && (onesPlace == threesPlace))
 			{
 				return true;
-
 			}
-
-
 			else
 			{
 				return false;
-
 			}
-
-
 		}
 
         public static void Main(string[] args)
@@ -77,7 +85,5 @@ namespace MathChallenge
             }
 
         }
-
-
     }
 }
