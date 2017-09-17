@@ -46,23 +46,41 @@ namespace MathChallenge
 				Console.WriteLine("True\nAwesome! The digits in your numbers({0} and {1}) have the same sum totals. ", userEnteredNum1, userEnteredNum2);
 			}
             //TODO Add code base that increments a variable that holds and increments the emelemtns by 1 each time 
-            int numDigit1 = Convert.ToInt32(StringOfNum1[0]);
+            int numDigit1 =0;
+            int numDigit2 = 0;
 
 			do
             {
-                numDigit1 += numDigit1;
+                numDigit1 = numDigit1+1;
+                numDigit2 = numDigit2 + 1;
                 Console.WriteLine(numDigit1);
             }
-            while (numDigit1 >= Convert.ToInt32(StringOfNum1.Length));
+            while (numDigit1 <= Convert.ToInt32(StringOfNum1.Length) && numDigit2 < Convert.ToInt32(StringOfNum2.Length));
+
+            int intArrayElementIndex1 = Convert.ToInt32(StringOfNum1[numDigit1] + Convert.ToInt32(StringOfNum2[numDigit1]));
+            int intArrayElementIndex2 = Convert.ToInt32(StringOfNum1[numDigit2] + Convert.ToInt32(StringOfNum2[numDigit2]));
+            Console.WriteLine(intArrayElementIndex1);
+            Console.WriteLine(intArrayElementIndex2);
+			if ((intArrayElementIndex1 == intArrayElementIndex2) )
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+     
+
             //All above is attempting to create an incremental loop for the element index
 
 
-
+            /*
 			//New variables are created to store the individual digits of the intergers
 			//This is possble by using ConvertTo Int32 on the elements of the strings and since Strings are by definition Character arrays this reverts the digits back to ints.
 			int onesPlace = Convert.ToInt32(StringOfNum1[0] + Convert.ToInt32(StringOfNum2[0]));
 			int twosPlace = Convert.ToInt32(StringOfNum1[1] + Convert.ToInt32(StringOfNum2[1]));
 			int threesPlace = Convert.ToInt32(StringOfNum1[2] + Convert.ToInt32(StringOfNum2[2]));
+
 
 			if ((onesPlace == twosPlace) && (twosPlace == threesPlace) && (onesPlace == threesPlace))
 			{
@@ -72,6 +90,7 @@ namespace MathChallenge
 			{
 				return false;
 			}
+            */
 		}
 
         public static void Main(string[] args)
