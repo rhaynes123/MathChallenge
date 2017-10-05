@@ -45,30 +45,39 @@ namespace MathChallenge
 			{
 				Console.WriteLine("True\nAwesome! The digits in your numbers({0} and {1}) have the same sum totals. ", userEnteredNum1, userEnteredNum2);
 			}
-            //TODO Add code base that increments a variable that holds and increments the emelemtns by 1 each time 
-            int numDigit1 =0;
-            int numDigit2 = 0;
+
+
+			//TODO Add code base that increments a variable that holds and increments the elements by 1 each time 
+            int numDigit1 = 0;
+           
 
 			do
             {
                 numDigit1 = numDigit1+1;
-                numDigit2 = numDigit2 + 1;
+               
                 Console.WriteLine(numDigit1);
-            }
-            while (numDigit1 <= Convert.ToInt32(StringOfNum1.Length) && numDigit2 < Convert.ToInt32(StringOfNum2.Length));
 
-            int intArrayElementIndex1 = Convert.ToInt32(StringOfNum1[numDigit1] + Convert.ToInt32(StringOfNum2[numDigit1]));
-            int intArrayElementIndex2 = Convert.ToInt32(StringOfNum1[numDigit2] + Convert.ToInt32(StringOfNum2[numDigit2]));
-            Console.WriteLine(intArrayElementIndex1);
-            Console.WriteLine(intArrayElementIndex2);
-			if ((intArrayElementIndex1 == intArrayElementIndex2) )
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
+				int intArrayElementIndex1 = Convert.ToInt32(StringOfNum1[numDigit1] + Convert.ToInt32(StringOfNum2[numDigit1]));
+				
+                int intArrayElementIndex2 = Convert.ToInt32(StringOfNum1[numDigit1] + Convert.ToInt32(StringOfNum2[numDigit1]));
+
+                int intArrayElementIndex3 = Convert.ToInt32(StringOfNum1[numDigit1] + Convert.ToInt32(StringOfNum2[numDigit1]));
+
+				Console.WriteLine(intArrayElementIndex1);
+				Console.WriteLine(intArrayElementIndex2);
+
+				if ((intArrayElementIndex1 == intArrayElementIndex2) && (intArrayElementIndex2 == intArrayElementIndex3) && (intArrayElementIndex1 == intArrayElementIndex3))
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+            }
+            while (numDigit1 != Convert.ToInt32(StringOfNum1.Length) );
+
+           
      
 
             //All above is attempting to create an incremental loop for the element index
